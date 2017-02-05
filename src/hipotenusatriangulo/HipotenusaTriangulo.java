@@ -1,7 +1,6 @@
 /*
 Calcula la hipotenusa de un triangulo 
 Formula -->  h2 = a2+ b2 
-             H2 = A2+ b2 
  */
 package hipotenusatriangulo;
 
@@ -15,28 +14,30 @@ public class HipotenusaTriangulo {
 
     public static void main(String[] args) {
 
-        double num_uno = 0;
-        double num_dos = 0;
-        double contA = num_uno;
-        double contB = num_dos;
-        double resultado = 0;
-        double sumaAB;
+        double num_uno;
+        double num_dos;
+        double mihipotenusa = 0;
 
         num_uno = Double.parseDouble(JOptionPane.showInputDialog("Ingresa A numero "));
         num_dos = Double.parseDouble(JOptionPane.showInputDialog("Ingresa B numero "));
 
         if (num_uno != 0 && num_dos != 0) {
+            HipotenusaTriangulo hipotenusaTriangulo = new HipotenusaTriangulo();
+            mihipotenusa = hipotenusaTriangulo.hipotenusa(num_uno, num_dos);
+            JOptionPane.showMessageDialog(null, mihipotenusa);
 
-            contA = num_uno * num_uno;
-            contB = num_dos * num_dos;
-            sumaAB = contA + contB;
-
-            resultado = Math.sqrt(sumaAB);
-
-            System.out.println("Resultado " + resultado);
         } else {
-            System.out.println("Verifica el valor ingresado");
+            JOptionPane.showMessageDialog(null, "Verifica el valor ingresado");
         }
+    }
+
+    public static double hipotenusa(double valorA, double valorB) {
+        double hipotenusa;
+        double resul;
+        resul = valorA * valorA + valorB * valorB;
+        hipotenusa = Math.sqrt(resul);
+        return hipotenusa;
+
     }
 
 }
